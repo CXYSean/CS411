@@ -15,8 +15,7 @@
         android:layout_width="77dp"
         android:layout_height="31dp"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="100dp"
+        android:layout_below="@+id/button1"
         android:text="TIme" />
 
     <Button
@@ -44,9 +43,8 @@
         android:id="@+id/et_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/button1"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"
         android:ems="10"
         android:inputType="time" />
 
@@ -54,9 +52,9 @@
         android:id="@+id/et_length"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_above="@+id/textView4"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="185dp"
+        android:layout_marginBottom="-193dp"
         android:ems="10"
         android:inputType="number" />
 
@@ -80,9 +78,9 @@
         android:id="@+id/textView4"
         android:layout_width="77dp"
         android:layout_height="31dp"
-        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="193dp"
+        android:layout_alignStart="@+id/textView2"
+        android:layout_marginTop="147dp"
         android:text="Duration" />
 
     <EditText
@@ -91,7 +89,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="270dp"
+        android:layout_marginTop="217dp"
         android:ems="10"
         android:inputType="text|textPersonName" />
 
@@ -99,11 +97,12 @@
         android:id="@+id/et_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="347dp"
+        android:layout_marginBottom="165dp"
         android:ems="10"
         android:inputType="textPersonName" />
+
 
     <Button
         android:id="@+id/button"
@@ -111,7 +110,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="46dp"
+        android:layout_marginBottom="14dp"
         android:onClick="addEvent"
         android:text="ADD" />
 
@@ -119,10 +118,57 @@
         android:id="@+id/go_display"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignTop="@+id/button"
-        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="11dp"
+        android:layout_marginEnd="32dp"
         android:text="display" />
+
+    <EditText
+        android:id="@+id/address"
+        android:layout_width="127dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/et_time"
+        android:layout_alignTop="@+id/textView7"
+        android:ems="10"
+        android:inputType="textPostalAddress" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/textView2"
+        android:layout_marginBottom="138dp"
+        android:text="Address" />
+
+    <EditText
+        android:id="@+id/zipcode"
+        android:layout_width="137dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/address"
+        android:ems="10"
+        android:inputType="number"
+        tools:text="Zipcode" />
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/textView2"
+        android:layout_marginBottom="94dp"
+        android:text="Descript" />
 
 
 </RelativeLayout>

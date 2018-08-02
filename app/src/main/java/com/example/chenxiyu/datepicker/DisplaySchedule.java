@@ -3,8 +3,10 @@ package com.example.chenxiyu.datepicker;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -15,10 +17,6 @@ import android.widget.TextView;
 
 public class DisplaySchedule extends AppCompatActivity {
     private MyDB mydb ;
-
-    TextView day;
-    TextView start_time;
-    TextView event;
 
     private Context context = null;
 
@@ -42,15 +40,18 @@ public class DisplaySchedule extends AppCompatActivity {
         Cursor rs = mydb.getData();
         rs.moveToFirst();
 
-        String dat = rs.getString(rs.getColumnIndex(MyDB.CONTACTS_COLUMN_DATE));
-        String tim = rs.getString(rs.getColumnIndex(MyDB.CONTACTS_COLUMN_TIME));
-        String eve = rs.getString(rs.getColumnIndex(MyDB.CONTACTS_COLUMN_EVENT));
+        String dat= rs.getString(rs.getColumnIndex(MyDB.SCHEDULE_COLUMN_DATE));
+        String tim;
+        String eve;
+        Log.e("date", dat);
 
         while(rs.moveToNext()) {
-            dat = rs.getString(rs.getColumnIndex(MyDB.CONTACTS_COLUMN_DATE));
-            tim = rs.getString(rs.getColumnIndex(MyDB.CONTACTS_COLUMN_TIME));
-            eve = rs.getString(rs.getColumnIndex(MyDB.CONTACTS_COLUMN_EVENT));
-            final Integer _id = rs.getInt(rs.getColumnIndex(MyDB.CONTACTS_COLUMN_ID));
+            dat = rs.getString(rs.getColumnIndex(MyDB.SCHEDULE_COLUMN_DATE));
+            tim = rs.getString(rs.getColumnIndex(MyDB.SCHEDULE_COLUMN_TIME));
+            eve = rs.getString(rs.getColumnIndex(MyDB.SCHEDULE_COLUMN_EVENT));
+            final Integer _id = rs.getInt(rs.getColumnIndex(MyDB.SCHEDULE_COLUMN_ID));
+            Log.e("date", dat);
+            Log.e("time", tim);
 
             final TableRow tableRow = new TableRow(context);
             TableRow.LayoutParams layoutParams = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT);
@@ -59,23 +60,24 @@ public class DisplaySchedule extends AppCompatActivity {
             TextView textView = new TextView(context);
             textView.setText((CharSequence) dat+" ");
             tableRow.addView(textView, 0);
+            textView.setTextColor(Color.BLACK);
 
 
             TextView textView2 = new TextView(context);
             textView2.setText((CharSequence) tim+" ");
             tableRow.addView(textView2, 1);
+            textView2.setTextColor(Color.BLACK);
+
 
             TextView textView3 = new TextView(context);
             textView3.setText((CharSequence) eve);
             tableRow.addView(textView3, 2);
+            textView3.setTextColor(Color.BLACK);
 
-            CheckBox checkBox = new CheckBox(context);
-            checkBox.setText("Check it");
-            tableRow.addView(checkBox, 3);
 
             Button button = new Button(context);
             button.setText("update");
-            tableRow.addView(button, 4);
+            tableRow.addView(button, 3);
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -86,7 +88,7 @@ public class DisplaySchedule extends AppCompatActivity {
 
             Button button1 = new Button(context);
             button1.setText("delete");
-            tableRow.addView(button1, 5);
+            tableRow.addView(button1, 4);
             button1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -107,6 +109,10 @@ public class DisplaySchedule extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void advanceSearch(View view){
+        Intent intent = new Intent(this, AdvancedSearch.class);
+        startActivity(intent);
+    }
 
 
 }

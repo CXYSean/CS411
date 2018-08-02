@@ -50,11 +50,11 @@ public class UpdateEvent extends AppCompatActivity {
         Cursor rs = mydb.getById(_id);
         rs.moveToFirst();
 
-        String nam = rs.getString(rs.getColumnIndex(MyDB.CONTACTS_COLUMN_NAME));
-        String dat = rs.getString(rs.getColumnIndex(MyDB.CONTACTS_COLUMN_DATE));
-        String tim = rs.getString(rs.getColumnIndex(MyDB.CONTACTS_COLUMN_TIME));
-        String eve = rs.getString(rs.getColumnIndex(MyDB.CONTACTS_COLUMN_EVENT));
-        Integer dur = rs.getInt(rs.getColumnIndex(MyDB.CONTACTS_COLUMN_DURATION));
+        String nam = rs.getString(rs.getColumnIndex(MyDB.SCHEDULE_COLUMN_NAME));
+        String dat = rs.getString(rs.getColumnIndex(MyDB.SCHEDULE_COLUMN_DATE));
+        String tim = rs.getString(rs.getColumnIndex(MyDB.SCHEDULE_COLUMN_TIME));
+        String eve = rs.getString(rs.getColumnIndex(MyDB.SCHEDULE_COLUMN_EVENT));
+        Integer dur = rs.getInt(rs.getColumnIndex(MyDB.SCHEDULE_COLUMN_DURATION));
 
         new_name = nam;
         new_time = tim;
